@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>My app</title>
+  </head>
+  <body>
+    <div style = "text-align:center">
+      <h1>Welcome to {{title}}.</h1>
+    </div>
+    <div>
+      <h1>Enter Your Name:<input #name type="text" ></h1>
+    </div>
+    <div> Months :
+      <select #mon (change) = "changemonths($event)">
+         <option *ngIF = "let i of months">{{i}}</option>
+      </select>
+    </div>
+    <br/>
+    
+    
+    <div>
+      <span *ngIf = "isavailable; then condition1 else condition2">
+         Condition is valid.
+      </span>
+      <ng-template #condition1>Condition is True</ng-template>
+      <ng-template #condition2>Condition is invalid</ng-template>
+    </div>
+    <button (click) = "myClickFunction(name.value,mon.value,$event)" [disabled]="isdesable">
+      Click Me
+    </button>
+    {{label}}
+    
+    
+  </body>
+</html>
